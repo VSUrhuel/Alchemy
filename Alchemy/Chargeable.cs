@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Alchemy
 {
-    internal class Program
+    internal interface Chargeable
     {
-        static void Main(string[] args)
-        {
-
-        }
+        void ICharge();
     }
 }
