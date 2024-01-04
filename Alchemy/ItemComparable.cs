@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Alchemy
 {
-    internal interface Chargeable
+    internal interface ItemComparable
     {
-        void Charge();
+        int CompareByValue(Item item);
+        
+        int CompareByWeight(Item item);
+
     }
 }

@@ -44,6 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chargeable.cs" />
+    <Compile Include="Consumable.cs" />
+    <Compile Include="EnergyBall.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemComparable.cs" />
+    <Compile Include="Potion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
