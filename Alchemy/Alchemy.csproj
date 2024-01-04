@@ -43,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bow.cs" />
     <Compile Include="Chargeable.cs" />
     <Compile Include="Consumable.cs" />
     <Compile Include="EnergyBall.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemComparable.cs" />
+    <Compile Include="Mergeable.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sword.cs" />
+    <Compile Include="Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
