@@ -6,45 +6,45 @@ using System.Threading.Tasks;
 
 namespace Alchemy
 {
-    internal class Bow : Weapon, Chargeable
+    internal class Staff : Weapon, Chargeable
     {
-        public Bow(double baseDamage, double baseDurability, int value) : base ("Bow", baseDamage, baseDurability, value, 90)
+        public Staff(double baseDamage, double baseDurability, int value) : base("Staff", baseDamage, baseDurability, value, 90)
         {
-            DamageModifier = 3;
             DurabilityModifier = 3.6;
+            DamageModifier = 3;
         }
         public override void Enhance()
         {
-            BaseDamage = BaseDamage + DurabilityModifier;
+            BaseDamage += DurabilityModifier;
         }
         public void Charge()
         {
-            BaseDamage *= DurabilityModifier;
+            BaseDamage *= DamageModifier;
         }
         public override void Use()
         {
-            if(this.BaseDurability == 0)
+            if (BaseDurability == 0)
             {
-                Console.WriteLine("You cannot use your bow. It is destroyed.");
+                Console.WriteLine("You cannot use your staff. It is destroyed");
                 this.BaseDamage /= DamageModifier;
             }
-            else if(this.BaseDamage % 3 == 0)
+            else if(BaseDamage % 3 == 0)
             {
-                Console.WriteLine("You have used your charged-bow to attack.");
-                this.BaseDamage /= DamageModifier;
+                Console.WriteLine("You have used your charged-staff to attack.");
+                BaseDamage /= DamageModifier;
             }
             else
             {
-                Console.WriteLine("You have used your bow to attack.");
-                this.BaseDamage /= DamageModifier;
+                Console.WriteLine("You have used your staff to attack");
+                BaseDamage /= DamageModifier;
             }
         }
         public Weapon Merge(Weapon weapon)
         {
-            if(weapon.BaseDamage > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
+            if (weapon.BaseDurability > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
             {
                 base.Destroy();
-                if(weapon is Sword)
+                if (weapon is Sword)
                 {
                     Sword s = new Sword(weapon.BaseDamage, weapon.BaseDurability, weapon.Value);
                     weapon.Destroy();
@@ -56,17 +56,17 @@ namespace Alchemy
                     weapon.Destroy();
                     return d;
                 }
-                if (weapon is Staff)
+                if (weapon is Bow)
                 {
-                    Staff t = new Staff(weapon.BaseDamage, weapon.BaseDurability, weapon.Value);
+                    Bow b = new Bow(weapon.BaseDamage, weapon.BaseDurability, weapon.Value);
                     weapon.Destroy();
-                    return t;
+                    return b;
                 }
             }
             weapon.Destroy();
-            Bow b = new Bow(this.BaseDamage, this.BaseDurability, this.Value);
+            Staff  t= new Staff(this.BaseDamage, this.BaseDurability, this.Value);
             base.Destroy();
-            return b;
+            return t;
         }
     }
 }

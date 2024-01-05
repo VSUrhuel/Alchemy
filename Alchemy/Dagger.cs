@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Alchemy
 {
-    internal class Sword : Weapon
+    internal class Dagger : Weapon
     {
-        public Sword(double baseDamage, double baseDurability, int value) : base ("Sword", baseDamage, baseDurability, value, 1) 
+        public Dagger(double baseDamage, double baseDurability, int value) : base("Dagger", baseDamage, baseDurability, value, 90) 
         {
-            DurabilityModifier = 3;
-        }   
+            this.DamageModifier = 3.6;
+            this.DurabilityModifier = 1.4;
+        }
         public override void Enhance()
         {
             BaseDamage += DurabilityModifier;
@@ -19,26 +20,26 @@ namespace Alchemy
         public override void Use()
         {
             if (BaseDurability == 0)
-                Console.WriteLine("You cannot use your sword. It is destroyed");
+                Console.WriteLine("You cannot use your dagger. It is destroyed");
             else
-                Console.WriteLine("You have used your sword to attack.");
+                Console.WriteLine("You have used your dagger to attack.");
         }
         public Weapon Merge(Weapon weapon)
         {
-            if(weapon.BaseDurability > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
+            if(weapon.BaseDamage > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
             {
                 base.Destroy();
+                if(weapon is Sword)
+                {
+                    Sword s = new Sword(weapon.BaseDamage, weapon.BaseDurability, weapon.Value);
+                    weapon.Destroy();
+                    return s;
+                }    
                 if(weapon is Staff)
                 {
                     Staff t = new Staff(weapon.BaseDamage, weapon.BaseDurability, weapon.Value);
                     weapon.Destroy();
                     return t;
-                }
-                if(weapon is Dagger)
-                {
-                    Dagger d = new Dagger(weapon.BaseDamage, weapon.BaseDurability, weapon.Value);
-                    weapon.Destroy();
-                    return d;
                 }
                 if(weapon is Bow)
                 {
@@ -48,10 +49,9 @@ namespace Alchemy
                 }
             }
             weapon.Destroy();
-            Sword s = new Sword(this.BaseDamage, this.BaseDurability, this.Value);
+            Dagger d = new Dagger(this.BaseDamage, this.BaseDurability, this.Value);
             base.Destroy();
-            return s;
+            return d;
         }
-
     }
 }
