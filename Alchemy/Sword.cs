@@ -23,7 +23,7 @@ namespace Alchemy
             else
                 Console.WriteLine("You have used your sword to attack.");
         }
-        public Weapon Merge(Weapon weapon)
+        public override Weapon Merge(Weapon weapon)
         {
             if(weapon.BaseDurability > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
             {

@@ -39,7 +39,7 @@ namespace Alchemy
                 this.BaseDamage /= DamageModifier;
             }
         }
-        public Weapon Merge(Weapon weapon)
+        public override Weapon Merge(Weapon weapon)
         {
             if(weapon.BaseDamage > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
             {

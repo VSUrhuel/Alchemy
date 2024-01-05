@@ -24,7 +24,7 @@ namespace Alchemy
             else
                 Console.WriteLine("You have used your dagger to attack.");
         }
-        public Weapon Merge(Weapon weapon)
+        public override Weapon Merge(Weapon weapon)
         {
             if(weapon.BaseDamage > this.BaseDamage && weapon.BaseDurability > this.BaseDurability)
             {

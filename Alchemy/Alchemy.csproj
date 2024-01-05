@@ -50,6 +50,7 @@
     <Compile Include="EnergyBall.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemComparable.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Mergeable.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="Program.cs" />

@@ -19,6 +19,10 @@ namespace Alchemy
             this.baseDurability = baseDurability;
             this.durabilityModifier = this.damageModifier = 0;
         }
+        public virtual Weapon Merge(Weapon weapon)
+        {
+            return null;
+        }
         public abstract void Enhance();
         public double BaseDamage
         {
